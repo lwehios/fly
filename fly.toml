@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for fly0507 on 2024-05-09T02:02:09Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+swap_size_mb = 512
+strg = ''
+primary_region = 'dfw'
+
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['strg']
+
+[[vm]]
+  size = 'shared-cpu-1x'
+[env]  # 环境变量必填
+  UUID = "2d38b61e-add1-43f1-822c-2ce655d375c8"   		#UUID获取网站：https://www.uuidtools.com/v5
+
+  AG_DOMAIN = ""   	#  若搭建临时隧道请默认 [env] 部分配置
+  AG_AUTH = "" 	#  若搭建固定隧道请去掉 # 并填写变量值
+  NZ_KEY = ""
+  NZ_PORT = "443"
+  NZ_SERVER = ""
